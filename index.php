@@ -1,12 +1,27 @@
 <?php
-echo 'Bienvenido a la página #1';
+echo 'Inicio de sesion';
 
 ?>
-    <form action="form.php">
+    <form action="index.php" type="post">
         <p>Nombre</p>
-        <input type="text" name="nombre" value="$value">
+        <input type="text" name="nombre">
     </form>
 <?php
 
-setcookie("nombre", $value, time()+3600);
+// echo $_COOKIE["nombre"];
+// echo $_POST['nombre'];
+
+$value = htmlentities($_POST["nombre"]);
+
+//guardamos el valor del usuario en una cookie
+setcookie("nombre", $value);
+
+//Si el cookie es creado aparecera un boton que nos enviara a la pagina form
+if (isset($_COOKIE["nombre"])) {
+    ?>
+    <form action="form.php">
+        <input type="submit" value="Enviar">
+    </form>
+    <?php
+}
 ?> 

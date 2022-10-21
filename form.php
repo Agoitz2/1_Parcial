@@ -40,6 +40,7 @@ include("concerts.php");
         <input type="text" name="ingresos">
         <br><br>
         <input type="submit" name="submit" value="Enviar">
+        <input type="hidden" value="<?php $guardar = $_POST ?>">
     </form>
 
 
